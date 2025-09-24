@@ -3,24 +3,27 @@
 <html>
 
 <head>
-	<meta charset=utf-8 />
-		<title>Return first and last name from a form</title>
-		<style type="text/css">
-			body {margin: 30px;}
-		</style> 
-	<link rel="stylesheet" href="styles.css">
+	<meta charset="utf-8">
+		<title>Get Full Name</title>
+		
 </head>
-
-<body>
-	<form id="form1" onsubmit="getFormvalue()">
-		First name: <input type="text" name="fname"><br>
-		Last name: <input type="text" name="lname"><br>
-		<input type="submit" value="Submit">
+	<h3>Enter Your Name</h3>
+	<form id="myForm">
+		First name: <input type="text" id="fname"><br><br>
+		Last name: <input type="text" id="lname"><br><br>
+		<button type="submit">Submit</button>
 	</form>
-	
-    <script type="text/javascript" src="./script.js">
-</script>
+<body>
+	<script>
+		document.getElementById("myForm").onsubmit = function(event){
+			event.preventDefault();
+			let firstName = document.getElementById("fname").value.trim();
+			let lastName = document.getElementById("lname").value.trim();
 
+			let fullName = firstName + " " + lastName;
+			alert(fullName);
+		};
+	</script>
 </body>
 
 </html>
