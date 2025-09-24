@@ -7,13 +7,15 @@
 		<title>Get Full Name</title>
 		
 </head>
+	
+<body>
 	<h3>Enter Your Name</h3>
 	<form id="myForm">
-		First name: <input type="text" id="fname"><br><br>
-		Last name: <input type="text" id="lname"><br><br>
+		First name: <input type="text" id="fname" name="fname"><br><br>
+		Last name: <input type="text" id="lname" name="lname"><br><br>
 		<button type="submit">Submit</button>
 	</form>
-<body>
+	
 	<script>
 		document.getElementById("myForm").onsubmit = function(event){
 			event.preventDefault();
@@ -22,6 +24,7 @@
 
 			let fullName = firstName + " " + lastName;
 			alert(fullName);
+
 		};
 	</script>
 </body>
