@@ -9,12 +9,27 @@
   <form id="myForm" onsubmit="getFormvalue(event)">
     First name: <input type="text" name="fname"><br><br>
     Last name: <input type="text" name="lname"><br><br>
-    <button type="submit">Submit</button>
+    <button type="submit">Submit</button><br><br>
   </form>
+
+  <!-- Table to show output -->
+  <table border="1" id="outputTable" style="display:none; border-collapse: collapse;">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Full Name</th>
+    </tr>
+    <tr>
+      <td id="outFirst"></td>
+      <td id="outLast"></td>
+      <td id="outFull"></td>
+    </tr>
+  </table>
 
   <script>
     function getFormvalue(event) {
       event.preventDefault();
+
       let firstName = document.forms["myForm"]["fname"].value.trim();
       let lastName = document.forms["myForm"]["lname"].value.trim();
 
@@ -23,7 +38,13 @@
         return;
       }
 
-      alert(firstName + " " + lastName);
+      // Show values inside the table
+      document.getElementById("outFirst").textContent = firstName;
+      document.getElementById("outLast").textContent = lastName;
+      document.getElementById("outFull").textContent = firstName + " " + lastName;
+
+      // Make table visible
+      document.getElementById("outputTable").style.display = "table";
     }
   </script>
 </body>
